@@ -10,13 +10,13 @@ import apiService from './api.service';
 let PokemonService = class PokemonService {
     constructor(){}
 
-    getPokemonDetails(PokemonId) {
+    getPokemonDetails(PokemonId) { // constructor(id, name, base_experience, height, weight)
         return new Promise((resolve, reject) => {
             fetch(apiService.getPokemonDetails(PokemonId))
             .then((response) => response.json())
             .then((response) => {
                 let items = [];
-                // items.push(new PokemonDetail)
+                items.push(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight));
                 // items.push(new MovieDetail(response.id, response.title, response.popularity,
                 //     response.release_date, response.overview, response.poster_path, response.genres,
                 //     response.budget, response.revenue, response.status));
