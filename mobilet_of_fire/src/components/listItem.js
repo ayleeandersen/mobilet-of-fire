@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet,   
 } from 'react-native';
-import style from '../styles/styles'
 import {Button, Card, CardItem, Thumbnail, Text, Left, Body, Right, Icon} from 'native-base';
-import styles from '../styles/styles';
 
 export default class MovieCard extends Component {
     render() {

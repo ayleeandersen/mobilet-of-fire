@@ -16,9 +16,9 @@ import {
 } from 'native-base';
 
 
-export default class HomeScreen extends Component {
+export default class Search extends Component {
     static navigationOptions = {
-        title: 'Home',
+        title: 'Search',
         headerRight: 
                 <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
                     <TouchableOpacity 
