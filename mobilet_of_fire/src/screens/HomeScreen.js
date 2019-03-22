@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import {
+    Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -44,17 +45,12 @@ export default class HomeScreen extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to The Home Screen
-            </Text>
-                <TouchableOpacity
-                    style={styles.touchableButton}
-                >
-                    <Text
-                        style={styles.touchableButtonText}
-                    >
-                        Go to Screen One
-            </Text>
-                </TouchableOpacity>
+                    Welcome to The Pokémon Finder! 
+                </Text>
+                <Text style={styles.welcome}>
+                    You can search Pokémon by name and add them to your favorites!
+                </Text>
+                <Image source={require('../../assets/pokeball.png')} style={{width: 150, height: 150}} />
             </View>
         );
     }
@@ -65,7 +61,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        margin: 30,
     },
     welcome: {
         fontSize: 20,
