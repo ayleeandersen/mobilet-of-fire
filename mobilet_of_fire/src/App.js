@@ -10,6 +10,8 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
+import Favorites from './screens/Favorites';
+import Search from './screens/Search';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -23,6 +25,8 @@ export default class App extends Component<Props> {
 const Root = createStackNavigator(
   {
       Home: HomeScreen,
+      Favorites: Favorites,
+      Search: Search,
   },
   {
       initialRouteName: 'Home'
