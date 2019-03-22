@@ -9,7 +9,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
+  TextInput
 } from 'react-native';
 import {
     Button,
@@ -38,23 +39,30 @@ export default class Search extends Component {
 
     constructor(props) {
         super(props);
+        this.states = {
+            text: '',
+        }
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to The Home Screen
+                    Results of Your Search:
             </Text>
+            <TextInput style={styles.textInput}></TextInput>
                 <TouchableOpacity
                     style={styles.touchableButton}
+                    placeholder="Type here to translate!"
+                    onChangeText={(text) => this.setState({text})}
                 >
                     <Text
                         style={styles.touchableButtonText}
                     >
-                        Go to Screen One
+                        Search
             </Text>
                 </TouchableOpacity>
+
             </View>
         );
     }
@@ -94,5 +102,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         padding: 10,
+    },
+    textInput: {
+        height: 50,
     },
 });

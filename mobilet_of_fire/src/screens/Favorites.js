@@ -44,10 +44,11 @@ export default class Favorites extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to The Home Screen
-            </Text>
+                    Favorite Pokemon
+                </Text>
                 <TouchableOpacity
                     style={styles.touchableButton}
+                    onPress={this._getSearch(this.state.text)}
                 >
                     <Text
                         style={styles.touchableButtonText}
@@ -57,6 +58,10 @@ export default class Favorites extends Component {
                 </TouchableOpacity>
             </View>
         );
+    }
+
+    _getSearch(text){
+        this
     }
 }
 
