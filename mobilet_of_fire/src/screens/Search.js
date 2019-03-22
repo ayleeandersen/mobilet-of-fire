@@ -17,23 +17,26 @@ import {
 
 
 export default class Search extends Component {
-    static navigationOptions = {
-        title: 'Search',
-        headerRight: 
-                <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
-                    <TouchableOpacity 
-                        title="Browse" 
-                        style={{margin: 5, padding: 10, borderRadius: 5}} 
-                    >
-                        <Text style={{fontSize: 20}}>Favorites</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                        title="Search" 
-                        style={{margin: 5, padding: 10, borderRadius: 5}}
-                    >
-                        <Text style={{fontSize: 20}}>Search</Text>
-                    </TouchableOpacity>
-                </View>
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: 'Home',
+            headerRight: 
+                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
+                        <TouchableOpacity 
+                            title="Favorites" 
+                            style={{margin: 5, padding: 10, borderRadius: 5}} 
+                            onPress={() => { navigation.push('Favorites', {from: 'from Search'}) }}
+                        >
+                            <Text style={{fontSize: 20}}>Favorites</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity 
+                            title="Search" 
+                            style={{margin: 5, padding: 10, borderRadius: 5}}
+                        >
+                            <Text style={{fontSize: 20}}>Search</Text>
+                        </TouchableOpacity>
+                    </View>
+        }
     }
 
     constructor(props) {
@@ -44,7 +47,7 @@ export default class Search extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to The Home Screen
+                    Welcome to Search
             </Text>
                 <TouchableOpacity
                     style={styles.touchableButton}

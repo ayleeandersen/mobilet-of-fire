@@ -18,19 +18,13 @@ export default class MovieCard extends Component {
             </Body>
             <Right style={{flex: 0}}>
                 <Button transparent
-                onPress = {() => this.props.pressed(this.props.id,this.props.name,this.props.overview,this.props.date)}
+                onPress = {() => this.props.pressed(this.props.name)}
                 >
                     <Text style={{fontWeight: 'bold'}}>
                         View
                     </Text>
                 </Button>
             </Right>
-            </CardItem>
-            <CardItem>
-                <Text style={{fontSize: 12}} numberOfLines={2}></Text>
-            </CardItem>
-            <CardItem footer>
-                <Text style={{fontSize: 12}}>Release: {this.props.date}</Text>
             </CardItem>
             </Card>
         );
