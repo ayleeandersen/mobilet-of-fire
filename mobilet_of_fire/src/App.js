@@ -31,7 +31,15 @@ const Root = createMaterialTopTabNavigator(
       Browse: Browse,
   },
   {
-      initialRouteName: 'Home'
+      initialRouteName: 'Home',
+      tabBarOptions: {
+        style: {
+          backgroundColor: '#4b76f4', // Makes Android tab bar white instead of standard blue
+        },
+        indicatorStyle: {
+          backgroundColor: '#f44a4a',
+        }
+    },
   }
 );
 
