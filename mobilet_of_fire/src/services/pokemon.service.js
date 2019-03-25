@@ -28,13 +28,13 @@ let PokemonService = class PokemonService {
         });
     }
 
-    getAllPokemon(PokemonId) { // constructor(id, name, base_experience, height, weight)
+    getAllPokemon() { // constructor(id, name, base_experience, height, weight)
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPokemonDetails(PokemonId))
+            fetch(apiService.getAllPokemon())
             .then((response) => response.json())
             .then((response) => {
                 let items = [];
-                items.push(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight));
+                items.push(new PokemonSummary(response.id, response.name, response.base_experience));
                 
                 resolve(items);
             })
