@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer, createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
 import Favorites from './screens/Favorites';
 import Search from './screens/Search';
@@ -23,7 +23,7 @@ export default class App extends Component<Props> {
   }
 }
 
-const Root = createStackNavigator(
+const Root = createMaterialTopTabNavigator(
   {
       Home: HomeScreen,
       Favorites: Favorites,
