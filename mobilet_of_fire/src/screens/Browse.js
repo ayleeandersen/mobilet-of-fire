@@ -12,6 +12,7 @@ import ListItem from '../components/listItem'
 import pokeService from '../services/pokemon.service';
 
 
+
 export default class Browse extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
@@ -63,7 +64,7 @@ export default class Browse extends Component {
             this.setState({ data: results });
         })
         .catch(error => {
-            console.log('Something went wrong!');
+            console.log(error + ' Something went wrong!');
         })
       }
     
