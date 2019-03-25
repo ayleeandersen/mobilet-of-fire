@@ -7,6 +7,7 @@
 //-------------------------------------------------------------------
 import apiService from './api.service';
 import PokemonDetail from '../models/pokemonDetail';
+import PokemonSummary from '../models/pokemonSummary';
 
 let PokemonService = class PokemonService {
     constructor(){}

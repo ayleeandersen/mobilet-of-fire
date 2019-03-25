@@ -11,8 +11,6 @@ import ListItem from '../components/listItem'
 // api
 import pokeService from '../services/pokemon.service';
 
-
-
 export default class Browse extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
