@@ -6,6 +6,7 @@
 //
 //-------------------------------------------------------------------
 import apiService from './api.service';
+import PokemonDetail from '../models/pokemonDetail';
 
 let PokemonService = class PokemonService {
     constructor(){}
@@ -17,9 +18,24 @@ let PokemonService = class PokemonService {
             .then((response) => {
                 let items = [];
                 items.push(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight));
-                // items.push(new MovieDetail(response.id, response.title, response.popularity,
-                //     response.release_date, response.overview, response.poster_path, response.genres,
-                //     response.budget, response.revenue, response.status));
+                
+                resolve(items);
+            })
+            .catch((error) => {
+                console.error(error);
+                reject(error);
+            });
+        });
+    }
+
+    getAllPokemon(PokemonId) { // constructor(id, name, base_experience, height, weight)
+        return new Promise((resolve, reject) => {
+            fetch(apiService.getPokemonDetails(PokemonId))
+            .then((response) => response.json())
+            .then((response) => {
+                let items = [];
+                items.push(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight));
+                
                 resolve(items);
             })
             .catch((error) => {
