@@ -15,11 +15,9 @@ import {
     Button,
 } from 'native-base';
 
-
 export default class Favorites extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: 'Home',
             headerRight: 
                     <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
                         <TouchableOpacity 
@@ -27,6 +25,13 @@ export default class Favorites extends Component {
                             style={{margin: 5, padding: 10, borderRadius: 5}} 
                         >
                             <Text style={{fontSize: 20}}>Favorites</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity 
+                            title="Browse" 
+                            style={{margin: 5, padding: 10, borderRadius: 5}}
+                            onPress={() => { navigation.push('Browse', {from: 'from Favorites'}) }}
+                        >
+                            <Text style={{fontSize: 20}}>Browse</Text>
                         </TouchableOpacity>
                         <TouchableOpacity 
                             title="Search" 

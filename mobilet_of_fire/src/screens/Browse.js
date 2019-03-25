@@ -19,23 +19,32 @@ import ListItem from '../components/listItem'
 
 
 export default class Favorites extends Component {
-    static navigationOptions = {
-        title: 'Favorites',
-        headerRight: 
-                <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
-                    <TouchableOpacity 
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerRight: 
+            <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
+                <TouchableOpacity 
+                    title="Favorites" 
+                    style={{margin: 5, padding: 10, borderRadius: 5}} 
+                    onPress={() => { navigation.push('Favorites', {from: 'from Browse'}) }}
+                >
+                    <Text style={{fontSize: 20}}>Favorites</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
                         title="Browse" 
-                        style={{margin: 5, padding: 10, borderRadius: 5}} 
-                    >
-                        <Text style={{fontSize: 20}}>Favorites</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                        title="Search" 
                         style={{margin: 5, padding: 10, borderRadius: 5}}
                     >
-                        <Text style={{fontSize: 20}}>Search</Text>
+                        <Text style={{fontSize: 20}}>Browse</Text>
                     </TouchableOpacity>
-                </View>
+                <TouchableOpacity 
+                    title="Search" 
+                    style={{margin: 5, padding: 10, borderRadius: 5}}
+                    onPress={() => { navigation.push('Search', {from: 'from Browse'}) }}
+                >
+                    <Text style={{fontSize: 20}}>Search</Text>
+                </TouchableOpacity>
+            </View>
+        }
     }
 
     constructor(props) {

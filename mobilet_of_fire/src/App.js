@@ -12,6 +12,7 @@ import { createAppContainer, createStackNavigator } from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
 import Favorites from './screens/Favorites';
 import Search from './screens/Search';
+import Browse from './screens/Browse';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -27,6 +28,7 @@ const Root = createStackNavigator(
       Home: HomeScreen,
       Favorites: Favorites,
       Search: Search,
+      Browse: Browse,
   },
   {
       initialRouteName: 'Home'
