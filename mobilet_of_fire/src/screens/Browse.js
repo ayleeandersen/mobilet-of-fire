@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {
   FlatList,
+  Text,
+  TouchableOpacity,
   View
 } from 'react-native';
 import styles from '../styles/styles';
