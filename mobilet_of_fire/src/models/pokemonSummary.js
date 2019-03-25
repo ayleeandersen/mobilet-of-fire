@@ -8,7 +8,7 @@
     ... TO BE CONTINUED
  */
 
-export default class PokemonSummary {
+export class PokemonSummary {
     constructor(id, name, base_experience) {
         this.id = id;
         this.name = name;
