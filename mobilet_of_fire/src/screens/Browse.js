@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   FlatList,
-  Text,
-  ImageBackground,
   View
 } from 'react-native';
 import styles from '../styles/styles';
-import Button from '../components/listButton'
+import ListItem from '../components/listItem'
 
 
 // api
-import genreService from '../services/genreService';
+import pokeService from '../services/pokemon.service';
 
 export default class Search extends Component {
     constructor(props) {
@@ -22,13 +19,7 @@ export default class Search extends Component {
         }
     }
 
-    /*** Mounting ***/
-    componentWillMount() {
-        //console.log('Browse: componentWillMount');
-    }
-
     render() {
-        let pic = require('../resources/background.png')
         return (
             <View style={styles.container}>
                 {this._renderPoke()}  
@@ -37,7 +28,7 @@ export default class Search extends Component {
     }
 
     _getPoke() {
-        genreService.getPoke()
+        pokeService.getAllPokemon()
         .then(results => {
             this.setState({ data: results });
         })
@@ -60,20 +51,12 @@ export default class Search extends Component {
       _renderItem = ({ item }) => {
         return (
             <View style={styles.listItem}>
-            <Button style={styles.buttonFont} id = {item.getId()} name={item.getName()} pressed={this.listMovies}/>
+                <ListItem id = {item.getId()} name={item.getName()} pressed={this.listMovies}/>
             </View>
         );
     }
 
     componentDidMount() {
-        this._getGenres();
-    }
-
-    listMovies = (id, name) => {
-        this.props.navigation.navigate('MovieList', {
-                genreId: id,
-                genreName: name
-            }
-        )
+        this._getPoke();
     }
 }
