@@ -1,89 +1,79 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   StyleSheet,
+  FlatList,
   Text,
-  TouchableOpacity,
+  ImageBackground,
   View
 } from 'react-native';
-import {
-    Button,
-} from 'native-base';
-
-import ListItem from '../components/listItem'
+import styles from '../styles/styles';
+import Button from '../components/listButton'
 
 
-export default class Favorites extends Component {
-    static navigationOptions = {
-        title: 'Favorites',
-        headerRight: 
-                <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
-                    <TouchableOpacity 
-                        title="Browse" 
-                        style={{margin: 5, padding: 10, borderRadius: 5}} 
-                    >
-                        <Text style={{fontSize: 20}}>Favorites</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                        title="Search" 
-                        style={{margin: 5, padding: 10, borderRadius: 5}}
-                    >
-                        <Text style={{fontSize: 20}}>Search</Text>
-                    </TouchableOpacity>
-                </View>
-    }
+// api
+import genreService from '../services/genreService';
 
+export default class Search extends Component {
     constructor(props) {
         super(props);
+        
+        this.state = {
+            data: []
+        }
+    }
+
+    /*** Mounting ***/
+    componentWillMount() {
+        //console.log('Browse: componentWillMount');
     }
 
     render() {
+        let pic = require('../resources/background.png')
         return (
             <View style={styles.container}>
-                <ListItem></ListItem>
+                {this._renderPoke()}  
             </View>
         );
     }
+
+    _getPoke() {
+        genreService.getPoke()
+        .then(results => {
+            this.setState({ data: results });
+        })
+        .catch(error => {
+            console.log('Something went wrong!');
+        })
+      }
+    
+      _renderPoke() {
+        return (
+            <FlatList
+            data={this.state.data}
+            keyExtractor={(item, index) => item.name}
+            renderItem={this._renderItem}
+            ListEmptyComponent={this._renderEmptyList}
+            />
+        );
+      }
+
+      _renderItem = ({ item }) => {
+        return (
+            <View style={styles.listItem}>
+            <Button style={styles.buttonFont} id = {item.getId()} name={item.getName()} pressed={this.listMovies}/>
+            </View>
+        );
+    }
+
+    componentDidMount() {
+        this._getGenres();
+    }
+
+    listMovies = (id, name) => {
+        this.props.navigation.navigate('MovieList', {
+                genreId: id,
+                genreName: name
+            }
+        )
+    }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-    touchableButton: {
-        backgroundColor: 'lightblue',
-        padding: 10,
-        margin: 10,
-        borderRadius: 20
-    },
-    touchableButtonText: {
-        fontSize: 20
-    },
-    buttonStyle: {
-
-    },
-    navButtonscontainer: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: 10,
-    },
-});
