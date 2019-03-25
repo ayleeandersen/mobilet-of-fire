@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+import {PokemonService} from '../services/pokemon.service'
+import console = require('console');
 
 export default class HomeScreen extends Component {
     static navigationOptions = {
@@ -22,11 +24,15 @@ export default class HomeScreen extends Component {
         super(props);
     }
 
+    componentDidMount() {
+      this._getPokemon();
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to The Home Screen
+                    
             </Text>
                 <TouchableOpacity
                     style={styles.touchableButton}
@@ -39,6 +45,15 @@ export default class HomeScreen extends Component {
                 </TouchableOpacity>
             </View>
         );
+    }
+
+    _getPokemon(PokemonId){
+      PookemonService.getPokemonDetails()
+      .then(
+        results => {
+          console.log(results)
+        }
+      )
     }
 }
 
