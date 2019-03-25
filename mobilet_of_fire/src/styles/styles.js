@@ -57,4 +57,20 @@ export default StyleSheet.create({
         color: 'black',
         fontSize: 15,
     },
+    search: {
+      flex: 1,
+      flexDirection: 'row',
+      width: '100%',
+      margin: 10,
+    },
+    searchText: {
+        width: '75%',
+        height: 50,
+        borderRadius: 10,
+    },
+    navButton: {
+      margin: 5,
+      borderRadius: 10,
+      width: 50
+    },
   });
