@@ -78,6 +78,7 @@ export default class Browse extends Component {
       }
 
       _renderItem = ({ item }) => {
+          console.log("id: " + item.getId() + " name: " + item.getName());
         return (
             <View style={styles.listItem}>
                 <ListItem id = {item.getId()} name={item.getName()} pressed={this.listMovies}/>
