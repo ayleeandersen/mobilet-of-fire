@@ -62,7 +62,7 @@ export default class Browse extends Component {
             this.setState({ data: results });
         })
         .catch(error => {
-            console.log('Something went wrong!');
+            console.log(error + ' Something went wrong!');
         })
       }
     
