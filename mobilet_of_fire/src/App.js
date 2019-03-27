@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import { createAppContainer, createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import {StyleSheet} from 'react-native';
+import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
 import Favorites from './screens/Favorites';
 import Search from './screens/Search';
@@ -17,6 +17,7 @@ import Browse from './screens/Browse';
 type Props = {};
 export default class App extends Component<Props> {
   render() {
+    console.disableYellowBox = true;
     return (
         <AppContainer />
     );
@@ -26,7 +27,7 @@ export default class App extends Component<Props> {
 const Root = createMaterialTopTabNavigator(
   {
       Home: HomeScreen,
-      Favorites: Favorites,
+      // Favorites: Favorites,
       Search: Search,
       Browse: Browse,
   },

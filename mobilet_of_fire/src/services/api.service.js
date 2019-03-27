@@ -2,9 +2,11 @@ let ApiService = class ApiService {
 	constructor() {
 		// this.apiProtocol = 'https:';
 		// this.apiHost = 'facebook.github.io/react-native';
-		this.apiProtocol = 'https:';
+		this.apiProtocol = 'https://';
 		this.apiHost = 'pokeapi.co/api/v2';
-    }
+		}
+		
+		// https://pokeapi.co/api/v2/pokemon/?limit=964
 
     get apiLocation() {
 		return `${this.apiProtocol}//${this.apiHost}`;
@@ -18,7 +20,7 @@ let ApiService = class ApiService {
     getAllPokemon() {
 				console.log("getting all pokemon");
         return `${this.apiLocation}/pokemon/?limit=964`
-    }
+		}
 };
 
 // Create a Singleton

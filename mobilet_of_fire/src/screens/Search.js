@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import {
+    Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,8 +15,8 @@ import {
 import {
     Button,
     Icon,
-    Item,
     Input,
+    Item,
 } from 'native-base';
 
 import styles from '../styles/styles';
@@ -68,11 +69,12 @@ export default class Search extends Component {
                         value={this.state.pokeSearch}
                     />
                 </Item>
-                <Button success
+                <Button transparent
                     style={styles.navButton} 
-                    onPress={() => alert(this.state.pokeSearch)}
+                    // onPress={() => alert(this.props.navigation.push('Detail', {from: 'from Search', pokemon: this.state.pokeSearch}))}
+                    onPress={() => alert("Navigate to Detail Page")}
                 >
-                    <Icon type="FontAwesome" name="home" />
+                    <Image source={require('../../assets/point.png')} style={{width: 50, height: 50}} />
                 </Button>
             </View>
         );

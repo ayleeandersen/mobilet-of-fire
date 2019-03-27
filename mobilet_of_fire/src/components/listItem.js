@@ -6,7 +6,7 @@ import {Button, Card, CardItem, Thumbnail, Text, Left, Body, Right, Icon} from '
 export default class MovieCard extends Component {
     render() {
         //image url
-        let pic =  ''
+        let pic =  '../../assets/no_image.png';
         return (
             <Card style={{flex: 0}}>
             <CardItem>

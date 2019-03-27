@@ -9,7 +9,7 @@ import styles from '../styles/styles';
 import ListItem from '../components/listItem'
 
 // api
-import pokeService from '../services/pokemon.service';
+import pokemonService from '../services/pokemon.service';
 
 export default class Browse extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -57,7 +57,7 @@ export default class Browse extends Component {
     }
 
     _getPoke() {
-        pokeService.getAllPokemon()
+        pokemonService.getAllPokemon()
         .then(results => {
             this.setState({ data: results });
             console.log(this.state.data)
@@ -71,7 +71,7 @@ export default class Browse extends Component {
         return (
             <FlatList
             data={this.state.data}
-            keyExtractor={(item, index) => item.name}
+            keyExtractor={(item, index) => (item.name + Math.random().toString())}
             renderItem={this._renderItem}
             ListEmptyComponent={this._renderEmptyList}
             />
@@ -79,6 +79,7 @@ export default class Browse extends Component {
       }
 
       _renderItem = ({ item }) => {
+          console.log("id: " + item.getId() + " name: " + item.getName());
         return (
             <View style={styles.listItem}>
                 <ListItem url={item.url} name={item.getName()} pressed={this.listMovies}/>
