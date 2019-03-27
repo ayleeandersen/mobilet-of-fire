@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import {
+    Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,13 +15,17 @@ import {
 } from 'react-native';
 import {
     Button,
+    Icon,
+    Input,
+    Item,
 } from 'native-base';
+
+import styles from '../styles/styles';
 
 
 export default class Search extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: 'Home',
             headerRight: 
                     <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
                         <TouchableOpacity 
@@ -29,6 +34,13 @@ export default class Search extends Component {
                             onPress={() => { navigation.push('Favorites', {from: 'from Search'}) }}
                         >
                             <Text style={{fontSize: 20}}>Favorites</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity 
+                            title="Browse" 
+                            style={{margin: 5, padding: 10, borderRadius: 5}}
+                            onPress={() => { navigation.push('Browse', {from: 'from Search'}) }}
+                        >
+                            <Text style={{fontSize: 20}}>Browse</Text>
                         </TouchableOpacity>
                         <TouchableOpacity 
                             title="Search" 
@@ -42,13 +54,20 @@ export default class Search extends Component {
 
     constructor(props) {
         super(props);
+<<<<<<< HEAD
         this.states = {
             text: '',
+=======
+
+        this.state = {
+            pokeSearch: "",
+>>>>>>> 7c823057ca3d94cd58ed045b50957b97f673d989
         }
     }
 
     render() {
         return (
+<<<<<<< HEAD
             <View style={styles.container}>
                 <Text style={styles.welcome}>
                     Welcome to Search
@@ -66,10 +85,28 @@ export default class Search extends Component {
             </Text>
                 </TouchableOpacity>
 
+=======
+            <View style={styles.search}>
+                <Item style={styles.searchText}>
+                    <Input 
+                        placeholder={'Ditto'}
+                        onChangeText={(val) => this.setState({pokeSearch: val})}
+                        value={this.state.pokeSearch}
+                    />
+                </Item>
+                <Button transparent
+                    style={styles.navButton} 
+                    // onPress={() => alert(this.props.navigation.push('Detail', {from: 'from Search', pokemon: this.state.pokeSearch}))}
+                    onPress={() => alert("Navigate to Detail Page")}
+                >
+                    <Image source={require('../../assets/point.png')} style={{width: 50, height: 50}} />
+                </Button>
+>>>>>>> 7c823057ca3d94cd58ed045b50957b97f673d989
             </View>
         );
     }
 }
+<<<<<<< HEAD
 
 const styles = StyleSheet.create({
     container: {
@@ -110,3 +147,5 @@ const styles = StyleSheet.create({
         height: 50,
     },
 });
+=======
+>>>>>>> 7c823057ca3d94cd58ed045b50957b97f673d989

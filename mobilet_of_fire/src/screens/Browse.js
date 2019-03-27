@@ -1,19 +1,45 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   FlatList,
   Text,
-  ImageBackground,
+  TouchableOpacity,
   View
 } from 'react-native';
 import styles from '../styles/styles';
-import Button from '../components/listButton'
-
+import ListItem from '../components/listItem'
 
 // api
-import genreService from '../services/genreService';
+import pokemonService from '../services/pokemon.service';
 
-export default class Search extends Component {
+export default class Browse extends Component {
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerRight: 
+            <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10,}}>
+                <TouchableOpacity 
+                    title="Favorites" 
+                    style={{margin: 5, padding: 10, borderRadius: 5}} 
+                    onPress={() => { navigation.push('Favorites', {from: 'from Browse'}) }}
+                >
+                    <Text style={{fontSize: 20}}>Favorites</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                        title="Browse" 
+                        style={{margin: 5, padding: 10, borderRadius: 5}}
+                    >
+                        <Text style={{fontSize: 20}}>Browse</Text>
+                    </TouchableOpacity>
+                <TouchableOpacity 
+                    title="Search" 
+                    style={{margin: 5, padding: 10, borderRadius: 5}}
+                    onPress={() => { navigation.push('Search', {from: 'from Browse'}) }}
+                >
+                    <Text style={{fontSize: 20}}>Search</Text>
+                </TouchableOpacity>
+            </View>
+        }
+    }
+
     constructor(props) {
         super(props);
         
@@ -22,13 +48,7 @@ export default class Search extends Component {
         }
     }
 
-    /*** Mounting ***/
-    componentWillMount() {
-        //console.log('Browse: componentWillMount');
-    }
-
     render() {
-        let pic = require('../resources/background.png')
         return (
             <View style={styles.container}>
                 {this._renderPoke()}  
@@ -37,12 +57,12 @@ export default class Search extends Component {
     }
 
     _getPoke() {
-        genreService.getPoke()
+        pokemonService.getAllPokemon()
         .then(results => {
             this.setState({ data: results });
         })
         .catch(error => {
-            console.log('Something went wrong!');
+            console.log(error + ' Something went wrong!');
         })
       }
     
@@ -58,22 +78,15 @@ export default class Search extends Component {
       }
 
       _renderItem = ({ item }) => {
+          console.log("id: " + item.getId() + " name: " + item.getName());
         return (
             <View style={styles.listItem}>
-            <Button style={styles.buttonFont} id = {item.getId()} name={item.getName()} pressed={this.listMovies}/>
+                <ListItem id = {item.getId()} name={item.getName()} pressed={this.listMovies}/>
             </View>
         );
     }
 
     componentDidMount() {
-        this._getGenres();
-    }
-
-    listMovies = (id, name) => {
-        this.props.navigation.navigate('MovieList', {
-                genreId: id,
-                genreName: name
-            }
-        )
+        this._getPoke();
     }
 }
