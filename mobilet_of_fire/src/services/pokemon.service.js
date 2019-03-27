@@ -6,7 +6,7 @@
 //
 //-------------------------------------------------------------------
 import apiService from './api.service';
-import PokemonDetail from '../models/pokemonDetail';
+import { PokemonDetail } from '../models/pokemonDetail';
 
 let PokemonService = class PokemonService {
     constructor(){}
@@ -16,10 +16,9 @@ let PokemonService = class PokemonService {
             fetch(apiService.getPokemonDetails(PokemonId))
             .then((response) => response.json())
             .then((response) => {
-                let items = [];
-                items.push(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight));
+                resolve(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight));
                 
-                resolve(items);
+                //resolve(items);
             })
             .catch((error) => {
                 console.error(error);
