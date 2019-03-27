@@ -12,11 +12,8 @@ import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigat
 import HomeScreen from './screens/HomeScreen';
 import Favorites from './screens/Favorites';
 import Search from './screens/Search';
-<<<<<<< HEAD
 import Detail from './screens/Detail';
-=======
 import Browse from './screens/Browse';
->>>>>>> 7c823057ca3d94cd58ed045b50957b97f673d989
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -33,11 +30,8 @@ const Root = createMaterialTopTabNavigator(
       Home: HomeScreen,
       // Favorites: Favorites,
       Search: Search,
-<<<<<<< HEAD
       Detail: Detail,
-=======
       Browse: Browse,
->>>>>>> 7c823057ca3d94cd58ed045b50957b97f673d989
   },
   {
       initialRouteName: 'Home',
