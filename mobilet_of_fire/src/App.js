@@ -26,7 +26,7 @@ export default class App extends Component<Props> {
 const Root = createMaterialTopTabNavigator(
   {
       Home: HomeScreen,
-      Favorites: Favorites,
+      // Favorites: Favorites,
       Search: Search,
       Browse: Browse,
   },

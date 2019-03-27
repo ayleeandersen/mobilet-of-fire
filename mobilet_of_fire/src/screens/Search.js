@@ -15,8 +15,8 @@ import {
 import {
     Button,
     Icon,
-    Item,
     Input,
+    Item,
 } from 'native-base';
 
 import styles from '../styles/styles';
