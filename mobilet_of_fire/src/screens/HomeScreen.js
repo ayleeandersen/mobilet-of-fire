@@ -56,12 +56,12 @@ export default class HomeScreen extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to The Pokémon Finder! 
-                </Text>
-                <Text style={styles.welcome}>
-                    You can search Pokémon by name and add them to your favorites!
+                    Welcome to The Pokémon Pocketbook! 
                 </Text>
                 <Image source={require('../../assets/pokeball.png')} style={{width: 150, height: 150}} />
+                <Text style={styles.welcome}>
+                    You can search Pokémon by name and view details about them!
+                </Text>
             </View>
         );
     }
