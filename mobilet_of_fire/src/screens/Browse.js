@@ -9,7 +9,7 @@ import styles from '../styles/styles';
 import ListItem from '../components/listItem'
 
 // api
-import pokeService from '../services/pokemon.service';
+import pokemonService from '../services/pokemon.service';
 
 export default class Browse extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -57,7 +57,7 @@ export default class Browse extends Component {
     }
 
     _getPoke() {
-        pokeService.getAllPokemon()
+        pokemonService.getAllPokemon()
         .then(results => {
             this.setState({ data: results });
         })

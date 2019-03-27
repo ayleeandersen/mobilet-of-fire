@@ -19,7 +19,6 @@ let PokemonService = class PokemonService {
             .then((response) => {
                 let items = [];
                 items.push(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight));
-                
                 resolve(items);
             })
             .catch((error) => {
@@ -29,14 +28,13 @@ let PokemonService = class PokemonService {
         });
     }
 
-    getAllPokemon() { // constructor(id, name, base_experience, height, weight)
+    getAllPokemon() { // constructor(id, name, base_experience)
         return new Promise((resolve, reject) => {
             fetch(apiService.getAllPokemon())
             .then((response) => response.json())
             .then((response) => {
                 let items = [];
                 items.push(new PokemonSummary(response.id, response.name, response.base_experience));
-                
                 resolve(items);
             })
             .catch((error) => {
