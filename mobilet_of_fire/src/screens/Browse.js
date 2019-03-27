@@ -70,7 +70,7 @@ export default class Browse extends Component {
         return (
             <FlatList
             data={this.state.data}
-            keyExtractor={(item, index) => item.name}
+            keyExtractor={(item, index) => (item.name + Math.random().toString())}
             renderItem={this._renderItem}
             ListEmptyComponent={this._renderEmptyList}
             />

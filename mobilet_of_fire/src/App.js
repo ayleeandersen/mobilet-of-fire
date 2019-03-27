@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import { createAppContainer, createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import {StyleSheet} from 'react-native';
+import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
 import Favorites from './screens/Favorites';
 import Search from './screens/Search';
