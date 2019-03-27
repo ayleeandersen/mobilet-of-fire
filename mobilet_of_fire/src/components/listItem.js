@@ -14,7 +14,7 @@ export default class MovieCard extends Component {
                 <Thumbnail square source={{ uri: pic }} />
             </Left>
             <Body style={{flex: 1, padding: 10}}>
-                <Text style={{fontWeight: 'bold', fontSize: 14}}></Text>
+                <Text style={{fontWeight: 'bold', fontSize: 14}}>{this.props.name}</Text>
             </Body>
             <Right style={{flex: 0}}>
                 <Button transparent

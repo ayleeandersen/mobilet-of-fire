@@ -60,6 +60,7 @@ export default class Browse extends Component {
         pokeService.getAllPokemon()
         .then(results => {
             this.setState({ data: results });
+            console.log(this.state.data)
         })
         .catch(error => {
             console.log(error + ' Something went wrong!');
@@ -80,7 +81,7 @@ export default class Browse extends Component {
       _renderItem = ({ item }) => {
         return (
             <View style={styles.listItem}>
-                <ListItem id = {item.getId()} name={item.getName()} pressed={this.listMovies}/>
+                <ListItem url={item.url} name={item.getName()} pressed={this.listMovies}/>
             </View>
         );
     }
