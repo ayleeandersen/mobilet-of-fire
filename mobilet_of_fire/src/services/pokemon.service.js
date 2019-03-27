@@ -32,7 +32,9 @@ let PokemonService = class PokemonService {
             .then((response) => response.json())
             .then((response) => {
                 let items = [];
-                items.push(new PokemonSummary(response.id, response.name, response.base_experience));
+                for( i = 0; i < response.count; i++) {
+                    items.push(new PokemonSummary(response.results[i].name, response.results[i].url));
+                }
                 resolve(items);
             })
             .catch((error) => {

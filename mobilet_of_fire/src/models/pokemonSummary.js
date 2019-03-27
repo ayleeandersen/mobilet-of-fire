@@ -9,17 +9,15 @@
  */
 
 export default class PokemonSummary {
-    constructor(id, name, base_experience) {
-        this.id = id;
+    constructor(name, url) {
         this.name = name;
-        this.base_experience = base_experience;
+        this.url = url;
         // this.height = height;
         // this.weight = weight;
     }
 
-    getId() { return this.id; }
     getName() { return this.name; }
-    getBaseExperience() { return this.base_experience; }
+    getUrl() { return this.url; }
     // getHeight() { return this.height; }
     // getWeight() { return this.weight; }
 }

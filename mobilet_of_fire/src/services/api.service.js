@@ -18,7 +18,7 @@ let ApiService = class ApiService {
     }
     
     getAllPokemon() {
-        console.log("getting all pokemon");
+				console.log("getting all pokemon");
         return `${this.apiLocation}/pokemon/?limit=964`
 		}
 };
