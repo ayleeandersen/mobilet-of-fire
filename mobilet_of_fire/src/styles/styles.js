@@ -71,6 +71,6 @@ export default StyleSheet.create({
     navButton: {
       margin: 5,
       borderRadius: 10,
-      width: 50
+      width: 50,
     },
   });
