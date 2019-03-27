@@ -40,7 +40,7 @@ export default class HomeScreen extends Component {
                         <TouchableOpacity 
                             title="Search" 
                             style={{margin: 5, padding: 10, borderRadius: 5}}
-                            onPress={() => { navigation.push('Detail', {from: 'from HomeScreen'}) }}
+                            onPress={() => { navigation.push('Search', {from: 'from HomeScreen'}) }}
                         >
                             <Text style={{fontSize: 20}}>Search</Text>
                         </TouchableOpacity>
