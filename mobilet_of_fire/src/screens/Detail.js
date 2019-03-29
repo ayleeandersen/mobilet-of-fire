@@ -46,13 +46,6 @@ export default class Detail extends Component {
         }
     }
 
-    // componentDidMount() {
-      // console.log("Pokemon: ", this.props.navigation.getParam('pokemon'));
-      // if (this.props.navigation.getParam('pokemon')) {
-        // this._getPokemon(this.props.navigation.getParam('pokemon'));
-      // }
-    // }
-
     componentDidUpdate() {
       console.log("Pokemon: ", this.props.navigation.getParam('pokemon'));
       if (this.props.navigation.getParam('pokemon')) {

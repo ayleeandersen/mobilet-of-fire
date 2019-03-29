@@ -7,7 +7,7 @@
 //-------------------------------------------------------------------
 import apiService from './api.service';
 import { PokemonDetail } from '../models/pokemonDetail';
-// import { PokemonSummary } from '../models/pokemonSummary';
+import { PokemonSummary } from '../models/pokemonSummary';
 
 let PokemonService = class PokemonService {
     constructor(){}
@@ -33,7 +33,7 @@ let PokemonService = class PokemonService {
             .then((response) => {
                 let items = [];
                 for( i = 0; i < response.count; i++) {
-                    // items.push(new PokemonSummary(response.results[i].name, response.results[i].url));
+                    items.push(new PokemonSummary(response.results[i].name, response.results[i].url));
                 }
                 resolve(items);
             })

@@ -8,7 +8,7 @@
     ... TO BE CONTINUED
  */
 
-export default class PokemonSummary {
+export class PokemonSummary {
     constructor(name, url) {
         this.name = name;
         this.url = url;
