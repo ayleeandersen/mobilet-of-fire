@@ -6,12 +6,13 @@
 
 import React, { Component } from 'react';
 import {
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   View
 } from 'react-native';
-import { Spinner } from 'native-base';
+import { Body, Card, CardItem, ListItem, Spinner, List } from 'native-base';
 
 import pokemonService from '../services/pokemon.service';
 //import console = require('console');
@@ -47,6 +48,7 @@ export default class Detail extends Component {
     }
 
     componentDidUpdate() {
+      console.log("p", this.state.pokemon);
       console.log("Pokemon: ", this.props.navigation.getParam('pokemon'));
       if (this.props.navigation.getParam('pokemon')) {
         this._getPokemon(this.props.navigation.getParam('pokemon'));
@@ -60,17 +62,27 @@ export default class Detail extends Component {
         );
       }
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    {this.state.pokemon.getName()}
-            </Text>
-                    <Text
-                        style={styles.welcome}
-                    >
-                        Base Experience: {this.state.pokemon.getBaseExperience()}
-            </Text>
-            <Text>Height: {this.state.pokemon.getHeight()} Weight: {this.state.pokemon.getWeight()} </Text>
-            </View>
+          <View style={styles.detailView}>
+            <Card style={styles.detailCard}>
+              <CardItem header button onPress={() => alert("This is Card Header")}>
+                <Text style={styles.detailHeader}>{this.state.pokemon.getName().toUpperCase()}</Text>
+              </CardItem>
+              <CardItem cardBody>
+              <Image
+                    style={{width: 200, height: 200}}
+                    source={{uri: this.state.pokemon.getImage()}}
+                  />
+              </CardItem>
+              <CardItem>
+                <Body style={styles.detailCard}>
+                  <ListItem>
+                    <Text style={styles.detailBody}>Base Experience: {this.state.pokemon.getBaseExperience()}</Text>
+                  </ListItem>
+                  <Text style={styles.detailBody}>Weight: {this.state.pokemon.getWeight()} and Height: {this.state.pokemon.getHeight()}</Text>
+                </Body>
+              </CardItem>
+            </Card>
+          </View>
         );
     }
 
@@ -109,5 +121,20 @@ const styles = StyleSheet.create({
   },
   touchableButtonText: {
     fontSize: 20
+  },
+  detailHeader: {
+    fontWeight: 'bold',
+    fontSize: 30,
+    color: '#4286f4',
+  },
+  detailBody: {
+    fontSize: 20,
+    paddingTop: 10,
+  },
+  detailCard: {
+    alignItems: 'center',
+  },
+  detailView: {
+    margin: 20,
   }
 });
