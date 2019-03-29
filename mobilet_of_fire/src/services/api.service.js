@@ -14,6 +14,7 @@ let ApiService = class ApiService {
     
     getPokemonDetails(pokemonId) {
 		console.log("api-service-pokeId: " + pokemonId);
+		pokemonId = pokemonId.toLowerCase();
 		return `${this.apiLocation}/pokemon/${pokemonId}`;
     }
     
