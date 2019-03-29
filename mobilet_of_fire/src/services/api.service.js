@@ -9,7 +9,7 @@ let ApiService = class ApiService {
 		// https://pokeapi.co/api/v2/pokemon/?limit=964
 
     get apiLocation() {
-		return `${this.apiProtocol}//${this.apiHost}`;
+		return `${this.apiProtocol}${this.apiHost}`;
 	}
     
     getPokemonDetails(pokemonId) {
