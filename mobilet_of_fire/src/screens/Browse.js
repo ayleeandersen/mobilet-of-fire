@@ -81,7 +81,7 @@ export default class Browse extends Component {
       _renderItem = ({ item }) => {
         return (
             <View style={styles.listItem}>
-                <ListItem url={item.url} name={item.getName()} pressed={this.listMovies}/>
+                <ListItem url={item.url} name={item.getName()} pressed={''}/>
             </View>
         );
     }
