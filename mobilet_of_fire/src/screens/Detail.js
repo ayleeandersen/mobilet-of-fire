@@ -47,8 +47,10 @@ export default class Detail extends Component {
     }
 
     componentDidMount() {
-      console.log(this.props.navigation.getParam('pokemon'))
-      this._getPokemon(this.props.navigation.getParam('pokemon'));
+      console.log("Pokemon: ", this.props.navigation.getParam('pokemon'));
+      if (this.props.navigation.getParam('pokemon')) {
+        this._getPokemon(this.props.navigation.getParam('pokemon'));
+      }
     }
 
     render() {
