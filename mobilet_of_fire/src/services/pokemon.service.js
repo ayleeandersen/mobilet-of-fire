@@ -17,7 +17,7 @@ let PokemonService = class PokemonService {
             fetch(apiService.getPokemonDetails(PokemonId))
             .then((response) => response.json())
             .then((response) => {
-                resolve(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight));
+                resolve(new PokemonDetail(response.id, response.name, response.base_experience, response.height, response.weight, response.sprites.front_default));
             })
             .catch((error) => {
                 console.error(error);

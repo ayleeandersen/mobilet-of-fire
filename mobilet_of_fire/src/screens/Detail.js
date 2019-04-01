@@ -9,7 +9,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View, 
+  Image
 } from 'react-native';
 import { Spinner } from 'native-base';
 
@@ -59,17 +60,23 @@ export default class Detail extends Component {
           <Spinner color='blue' />
         );
       }
+      console.log("img: " + this.state.pokemon.getImgUrl());
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    {this.state.pokemon.getName()}
-            </Text>
-                    <Text
-                        style={styles.welcome}
-                    >
-                        Base Experience: {this.state.pokemon.getBaseExperience()}
-            </Text>
-            <Text>Height: {this.state.pokemon.getHeight()} Weight: {this.state.pokemon.getWeight()} </Text>
+              <Image
+                style={{width: 200, height: 200}}
+                source={{uri: this.state.pokemon.getImgUrl()}}
+
+              />
+              <Text style={styles.welcome}>
+                {this.state.pokemon.getName()}
+              </Text>
+              <Text
+                  style={styles.welcome}
+              >
+                Base Experience: {this.state.pokemon.getBaseExperience()}
+              </Text>
+              <Text>Height: {this.state.pokemon.getHeight()} Weight: {this.state.pokemon.getWeight()} </Text>
             </View>
         );
     }
