@@ -81,7 +81,7 @@ export default class Browse extends Component {
       _renderItem = ({ item }) => {
         return (
             <View style={styles.listItem}>
-                <ListItem url={item.url} name={item.getName()} pressed={''}/>
+                <ListItem url={item.url} name={item.getName()} pressed={(pokeID) => this.props.navigation.push('Detail', {from: 'from Browse', pokemon: pokeID})}/>
             </View>
         );
     }
